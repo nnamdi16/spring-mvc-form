@@ -12,15 +12,15 @@ import org.springframework.web.servlet.view.JstlView;
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = {
-        "com"
+        "com.controller"
 })
-public class WebMvcConfig implements WebMvcConfigurer {
+public abstract class WebMvcConfig implements WebMvcConfigurer {
 
     @Bean
     public InternalResourceViewResolver resolver() {
         InternalResourceViewResolver resolver = new InternalResourceViewResolver();
         resolver.setViewClass(JstlView.class);
-        resolver.setPrefix("/WEB-INF/views");
+        resolver.setPrefix("webapp/WEB-INF/views");
         resolver.setPrefix(".jsp");
         return resolver;
     }
